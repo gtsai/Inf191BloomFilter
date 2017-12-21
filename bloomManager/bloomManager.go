@@ -52,7 +52,7 @@ func (bf *BloomFilter) RepopulateBloomFilter() {
 // of strings in the form of userid_email
 func getArrayOfUserIDEmail() []string {
 	var arrayOfUserIDEmail []string
-	dao := databaseAccessObj.New("bloom:test@/unsubscribed")
+	dao := databaseAccessObj.New("bloom:test@db/unsubscribed")
 	// loops through all tables in the database
 	for j := 0; j < databaseSize; j++ {
 		databaseResultMap := dao.SelectTable(j)
@@ -91,7 +91,7 @@ func (bf *BloomFilter) GetArrayOfUnsubscribedEmails(arrayOfEmails []string) []st
 			mapOfPositives[key] = append(valueArray, value)
 		}
 	}
-	dao := databaseAccessObj.New("bloom:test@/unsubscribed")
+	dao := databaseAccessObj.New("bloom:test@db/unsubscribed")
 	databaseResultMap := dao.Select(mapOfPositives)
 	// convert back to array
 	for key, value := range databaseResultMap {

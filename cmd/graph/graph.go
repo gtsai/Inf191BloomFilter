@@ -16,7 +16,7 @@ func main() {
 	g, err := graphite.NewGraphite("localhost", 2003)
 	checkErr(err)
 
-	dao := databaseAccessObj.New("bloom:test@/unsubscribed")
+	dao := databaseAccessObj.New("bloom:test@go/unsubscribed")
 	results := dao.SelectTestResults()
 	for i := 0; i < len(results); i++ {
 		err = g.SimpleSend("Test_Results_1", fmt.Sprintf("%f", results[i].X))

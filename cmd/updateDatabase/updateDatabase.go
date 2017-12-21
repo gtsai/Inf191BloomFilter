@@ -16,7 +16,7 @@ type UserInputs struct {
 	maxEmail int
 }
 
-const dsn = "bloom:test@/unsubscribed"
+const dsn = "bloom:test@db/unsubscribed"
 const unsub_schema = `(user_id int(11), email varchar(255), ts timestamp default current_timestamp, primary key (user_id, email));`
 const test_result_schema = `(result_type varchar(30) NOT NULL, x_axis float NOT NULL, y_axis float NOT NULL );`
 
